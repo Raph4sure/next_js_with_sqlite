@@ -24,10 +24,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`antialiased`}
-            >
-                <div className="mx-auto p-20">{children}</div>
+            <body className={`antialiased`}>
+                <div className="min-h-screen flex items-center justify-center w-full">
+                    {children}
+                </div>
             </body>
         </html>
     );

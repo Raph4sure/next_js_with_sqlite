@@ -20,7 +20,7 @@ export default function SnippetCreatePage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center w-full">
+        // <div className="min-h-screen flex items-center justify-center w-full">
             <form className="w-1/3" action={createSnippet}>
                 <div className="flex flex-col gap-4">
                     <h2 className="text-xl font-bold">Create New Snippet</h2>
@@ -49,6 +49,6 @@ export default function SnippetCreatePage() {
                     </button>
                 </div>
             </form>
-        </div>
+        // </div>
     );
 }
