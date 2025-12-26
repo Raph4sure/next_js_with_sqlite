@@ -1,17 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
-import sqlite from "better-sqlite3";
 
 const prismaClientSingleton = () => {
-    // 1. Initialize the better-sqlite3 driver
-    // Ensure the path to your .db file is correct relative to the root
-    const libsql = new sqlite("./prisma/dev.db");
+    // 1. In Prisma 7, you just provide the URL in an options object.
+    // The adapter will create the better-sqlite3 instance for you internally.
+    const adapter = new PrismaBetterSqlite3({
+        url: "file:./prisma/dev.db",
+    });
 
-    // 2. Initialize the Prisma adapter
-    const adapter = new PrismaBetterSqlite3(libsql);
-
-    // 3. Instantiate PrismaClient with the adapter
-    // In Prisma 7, passing the adapter is mandatory for local SQLite
+    // 2. Pass the adapter to the PrismaClient
     return new PrismaClient({ adapter });
 };
 
